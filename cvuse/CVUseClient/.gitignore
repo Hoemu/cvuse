@@ -4,5 +4,10 @@
 .pch/
 .rcc/
 .uic/
-./build/
-./depends/
+
+# 文件夹
+depends/
+build/
+
+# 文件
+*.user
