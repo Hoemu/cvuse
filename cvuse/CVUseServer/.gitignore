@@ -1,0 +1,8 @@
+# Directories with generated files
+.moc/
+.obj/
+.pch/
+.rcc/
+.uic/
+./build/
+./depends/
