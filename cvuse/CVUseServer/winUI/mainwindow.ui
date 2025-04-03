@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>892</width>
     <height>600</height>
    </rect>
   </property>
@@ -41,149 +41,161 @@
          <property name="bottomMargin">
           <number>0</number>
          </property>
-         <item>
-          <widget class="QPushButton" name="btn_main">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton
-{
-	background-color: #473C8B; /*背景色*/ 
-	border-style: outset;
-	border-width: 2px;
-	border-radius:5px; /*边界圆滑*/
-	border-color: #8B7355;
-	font: bold 14px;
-	min-width:2em;
-	color:white; /*字体颜色*/
-	font-family:华文新魏;
-	padding: 5px;
-}
- 
-QPushButton:hover
-{
-	background-color: rgb(85, 0, 255);
-}
- 
-QPushButton:pressed
-{
-	background-color: #1E90FF; /*伪状态经过时背景色*/ 
-	border-style: inset;
-}
-QPushButton:!enabled{
-	background-color: rgb(100, 100, 100);
-	border-style: inset;
-}</string>
-           </property>
-           <property name="text">
-            <string>主页</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButton_2">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton
-{
-	background-color: #473C8B; /*背景色*/ 
-	border-style: outset;
-	border-width: 2px;
-	border-radius:5px; /*边界圆滑*/
-	border-color: #8B7355;
-	font: bold 14px;
-	min-width:2em;
-	color:white; /*字体颜色*/
-	font-family:华文新魏;
-	padding: 5px;
-}
- 
-QPushButton:hover
-{
-	background-color: rgb(85, 0, 255);
-}
- 
-QPushButton:pressed
-{
-	background-color: #1E90FF; /*伪状态经过时背景色*/ 
-	border-style: inset;
-}
-QPushButton:!enabled{
-	background-color: rgb(100, 100, 100);
-	border-style: inset;
-}</string>
-           </property>
-           <property name="text">
-            <string>设置</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButton_3">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton
-{
-	background-color: #473C8B; /*背景色*/ 
-	border-style: outset;
-	border-width: 2px;
-	border-radius:5px; /*边界圆滑*/
-	border-color: #8B7355;
-	font: bold 14px;
-	min-width:2em;
-	color:white; /*字体颜色*/
-	font-family:华文新魏;
-	padding: 5px;
-}
- 
-QPushButton:hover
-{
-	background-color: rgb(85, 0, 255);
-}
- 
-QPushButton:pressed
-{
-	background-color: #1E90FF; /*伪状态经过时背景色*/ 
-	border-style: inset;
-}
-QPushButton:!enabled{
-	background-color: rgb(100, 100, 100);
-	border-style: inset;
-}</string>
-           </property>
-           <property name="text">
-            <string>其他</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="verticalSpacer">
-           <property name="orientation">
-            <enum>Qt::Orientation::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
         </layout>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget_2" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QPushButton" name="btn_main">
+            <property name="minimumSize">
+             <size>
+              <width>42</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton
+{
+	background-color: #473C8B; /*背景色*/ 
+	border-style: outset;
+	border-width: 2px;
+	border-radius:5px; /*边界圆滑*/
+	border-color: #8B7355;
+	font: bold 14px;
+	min-width:2em;
+	color:white; /*字体颜色*/
+	font-family:华文新魏;
+	padding: 5px;
+}
+ 
+QPushButton:hover
+{
+	background-color: rgb(85, 0, 255);
+}
+ 
+QPushButton:pressed
+{
+	background-color: #1E90FF; /*伪状态经过时背景色*/ 
+	border-style: inset;
+}
+QPushButton:!enabled{
+	background-color: rgb(100, 100, 100);
+	border-style: inset;
+}</string>
+            </property>
+            <property name="text">
+             <string>主页</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_setting">
+            <property name="minimumSize">
+             <size>
+              <width>42</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton
+{
+	background-color: #473C8B; /*背景色*/ 
+	border-style: outset;
+	border-width: 2px;
+	border-radius:5px; /*边界圆滑*/
+	border-color: #8B7355;
+	font: bold 14px;
+	min-width:2em;
+	color:white; /*字体颜色*/
+	font-family:华文新魏;
+	padding: 5px;
+}
+ 
+QPushButton:hover
+{
+	background-color: rgb(85, 0, 255);
+}
+ 
+QPushButton:pressed
+{
+	background-color: #1E90FF; /*伪状态经过时背景色*/ 
+	border-style: inset;
+}
+QPushButton:!enabled{
+	background-color: rgb(100, 100, 100);
+	border-style: inset;
+}</string>
+            </property>
+            <property name="text">
+             <string>设置</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_other">
+            <property name="minimumSize">
+             <size>
+              <width>42</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton
+{
+	background-color: #473C8B; /*背景色*/ 
+	border-style: outset;
+	border-width: 2px;
+	border-radius:5px; /*边界圆滑*/
+	border-color: #8B7355;
+	font: bold 14px;
+	min-width:2em;
+	color:white; /*字体颜色*/
+	font-family:华文新魏;
+	padding: 5px;
+}
+ 
+QPushButton:hover
+{
+	background-color: rgb(85, 0, 255);
+}
+ 
+QPushButton:pressed
+{
+	background-color: #1E90FF; /*伪状态经过时背景色*/ 
+	border-style: inset;
+}
+QPushButton:!enabled{
+	background-color: rgb(100, 100, 100);
+	border-style: inset;
+}</string>
+            </property>
+            <property name="text">
+             <string>其他</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
        </item>
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -211,8 +223,12 @@ QPushButton:!enabled{
              <height>500</height>
             </size>
            </property>
-           <widget class="QWidget" name="page"/>
-           <widget class="QWidget" name="page_2"/>
+           <property name="currentIndex">
+            <number>2</number>
+           </property>
+           <widget class="MainPage" name="page_main"/>
+           <widget class="SettingPage" name="page_setting"/>
+           <widget class="OtherPage" name="page_other"/>
           </widget>
          </item>
          <item>
@@ -249,6 +265,26 @@ QPushButton:!enabled{
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SettingPage</class>
+   <extends>QWidget</extends>
+   <header location="global">../../../../winUI/setting_page.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MainPage</class>
+   <extends>QWidget</extends>
+   <header location="global">../../../../winUI/main_page.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>OtherPage</class>
+   <extends>QWidget</extends>
+   <header location="global">../../../../winUI/other_page.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
