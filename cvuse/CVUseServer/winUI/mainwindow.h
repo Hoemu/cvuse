@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QButtonGroup>
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -27,5 +28,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    QButtonGroup group;
 };
 #endif // MAINWINDOW_H

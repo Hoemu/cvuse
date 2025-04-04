@@ -6,6 +6,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 {
     ui->setupUi(this);
     this->setWindowTitle("WinServer");
+
+    group.addButton(ui->btn_main);
+    group.addButton(ui->btn_other);
+    group.addButton(ui->btn_setting);
 }
 
 MainWindow::~MainWindow()

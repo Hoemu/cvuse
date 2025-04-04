@@ -1,6 +1,7 @@
 #ifndef OTHER_PAGE_H
 #define OTHER_PAGE_H
 
+#include <QButtonGroup>
 #include <QWidget>
 
 namespace Ui
@@ -18,6 +19,8 @@ public:
 
 private:
     Ui::OtherPage *ui;
+
+    QButtonGroup group;
 };
 
 #endif // OTHER_PAGE_H

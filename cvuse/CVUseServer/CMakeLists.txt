@@ -24,6 +24,7 @@ set(PROJECT_SOURCES
     main.cpp
     # logic
     win/win_opengl.h win/win_opengl.cpp
+    win/win_play.h win/win_play.cpp
     protocol/protocol_udp.h protocol/protocol_udp.cpp
     # UI
     winUI/mainwindow.cpp winUI/mainwindow.h winUI/mainwindow.ui
@@ -32,6 +33,7 @@ set(PROJECT_SOURCES
     winUI/other_page.h winUI/other_page.cpp winUI/other_page.ui
     winUI/component/win_title.h winUI/component/win_title.cpp winUI/component/win_title.ui
     ${SRC}
+    res_pic.qrc
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

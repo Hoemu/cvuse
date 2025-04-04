@@ -16,28 +16,35 @@
   <property name="styleSheet">
    <string notr="true">QPushButton
 {
-	background-color: #473C8B; /*背景色*/ 
+	background-color: #00d1d1; /*背景色*/ 
 	border-style: outset;
 	border-width: 0px;
-	border-radius:0px; /*边界圆滑*/
-	border-color: #8B7355;
+	border-radius:4px; /*边界圆滑*/
+	border-color: #00d1d1;
 	font: bold 14px;
 	min-width:2em;
 	color:white; /*字体颜色*/
-	font-family:华文新魏;
+	/*font-family:华文新魏;*/
 	padding: 4px;
 }
  
 QPushButton:hover
 {
-	background-color: rgb(85, 0, 255);
+	background-color: #00aaaa;
 }
  
 QPushButton:pressed
 {
-	background-color: #1E90FF; /*伪状态经过时背景色*/ 
+	background-color: #008484; /*伪状态经过时背景色*/ 
 	border-style: inset;
 }
+
+QPushButton:checked
+{
+	background-color: #008484; /*伪状态经过时背景色*/ 
+	border-style: inset;
+}
+
 QPushButton:!enabled{
 	background-color: rgb(100, 100, 100);
 	border-style: inset;
@@ -56,7 +63,7 @@ QPushButton:!enabled{
     <string>其他页面</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>240</x>
@@ -70,16 +77,25 @@ QPushButton:!enabled{
      <number>0</number>
     </property>
     <item>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="btn_test1">
       <property name="text">
        <string>第一个按钮</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="btn_test2">
       <property name="text">
        <string>第二个按钮</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
