@@ -22,10 +22,14 @@ private slots:
 
     void on_btn_fileServer_clicked();
 
+    void on_btn_selectFile_clicked();
+
 private:
     Ui::MainPage *ui;
 
     QButtonGroup group;
+
+    QString data;
 };
 
 #endif // MAIN_PAGE_H

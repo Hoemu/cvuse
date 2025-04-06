@@ -5,6 +5,10 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    acoreInit.getLogController()->setFilePath({ "./Log/info.log" });
+    acoreInit.getLogController()->setFoldFilePath(true);
+
+    // LOG_INFO("begin mainwindow" + "adf");
     this->setWindowTitle("WinServer");
 
     group.addButton(ui->btn_main);

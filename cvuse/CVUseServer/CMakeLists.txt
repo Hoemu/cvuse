@@ -16,7 +16,7 @@ if(${QT_VERSION_MAJOR} MATCHES 5)
 
 endif()
 
-include(./depends/depends.cmake)
+include(./depends/depends_setting.cmake)
 find_package(OpenCV REQUIRED)
 
 
@@ -26,12 +26,16 @@ set(PROJECT_SOURCES
     win/win_opengl.h win/win_opengl.cpp
     win/win_play.h win/win_play.cpp
     protocol/protocol_udp.h protocol/protocol_udp.cpp
+    tool/qss_tool.h tool/qss_tool.cpp
+
     # UI
     winUI/mainwindow.cpp winUI/mainwindow.h winUI/mainwindow.ui
     winUI/main_page.cpp winUI/main_page.h winUI/main_page.ui
     winUI/setting_page.h winUI/setting_page.cpp winUI/setting_page.ui
     winUI/other_page.h winUI/other_page.cpp winUI/other_page.ui
     winUI/component/win_title.h winUI/component/win_title.cpp winUI/component/win_title.ui
+    winUI/component/button_text_group.h winUI/component/button_text_group.cpp winUI/component/button_text_group.ui
+
     ${SRC}
     res_pic.qrc
 )
@@ -61,6 +65,7 @@ endif()
 
 target_link_libraries(CVUseServer PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
+    ${ACore_DIR_LIB}
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

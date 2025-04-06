@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>883</width>
-    <height>609</height>
+    <height>624</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -53,6 +53,11 @@ QPushButton:checked
 QPushButton:!enabled{
 	background-color: rgb(100, 100, 100);
 	border-style: inset;
+}
+
+#widgetPlay
+{
+	border: 1px solid #000000;
 }
 
 #label_5
@@ -197,7 +202,7 @@ QPushButton:!enabled{
    <item>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page_play">
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -307,6 +312,12 @@ QPushButton:!enabled{
            <width>0</width>
            <height>500</height>
           </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#widgetPlay
+{
+	border: 1px solid #000000;
+}</string>
          </property>
         </widget>
        </item>

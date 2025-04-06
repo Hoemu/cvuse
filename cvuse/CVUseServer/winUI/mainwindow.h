@@ -3,6 +3,7 @@
 
 #include <QButtonGroup>
 #include <QMainWindow>
+#include "a_core.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -30,5 +31,7 @@ private:
     Ui::MainWindow *ui;
 
     QButtonGroup group;
+
+    acore::ACore acoreInit;
 };
 #endif // MAINWINDOW_H

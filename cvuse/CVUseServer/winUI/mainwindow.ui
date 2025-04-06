@@ -21,32 +21,34 @@
 
 QPushButton
 {
-	background-color: #473C8B; /*背景色*/ 
+	background-color: #f6f6f6; /*背景色*/ 
 	border-style: outset;
 	border-width: 0px;
-	border-radius:0px; /*边界圆滑*/
-	border-color: #8B7355;
-	font: bold 24px;
-	min-width:2em;
-	color:white; /*字体颜色*/
+	border-radius: 0px; /*边界圆滑*/
+	border-color: #f6f6f6;
+	color: #000000;
+	font: 20px;
+	min-width: 2em;
+	color: black; /*字体颜色*/
 	/*font-family:华文新魏;*/
 	padding: 4px;
 }
  
 QPushButton:hover
 {
-	background-color: rgb(85, 0, 255);
+	background-color: #f3f3f3;
 }
  
 QPushButton:pressed
 {
-	background-color: #1E90FF; /*伪状态经过时背景色*/ 
+	background-color: #f3f3f3; /*伪状态经过时背景色*/ 
 	border-style: inset;
 }
 
 QPushButton:checked
 {
-	background-color: #1E90FF; /*伪状态经过时背景色*/ 
+	background-color: #f3f3f30; /*伪状态经过时背景色*/ 
+	font: bold 20px;
 	border-style: inset;
 }
 
@@ -67,7 +69,9 @@ QPushButton:!enabled{
 
 #widget_LeftBar
 {
-	border-right: 2px solid #f0f0f0;
+	padding-right: 2px;
+	background-color: #f3f3f3;
+	border-right: 2px solid #f3f3f3;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -140,7 +144,7 @@ QPushButton:!enabled{
            <number>0</number>
           </property>
           <property name="rightMargin">
-           <number>0</number>
+           <number>2</number>
           </property>
           <property name="bottomMargin">
            <number>0</number>
@@ -149,7 +153,7 @@ QPushButton:!enabled{
            <widget class="QPushButton" name="btn_main">
             <property name="minimumSize">
              <size>
-              <width>68</width>
+              <width>58</width>
               <height>0</height>
              </size>
             </property>
@@ -171,7 +175,7 @@ QPushButton:!enabled{
            <widget class="QPushButton" name="btn_setting">
             <property name="minimumSize">
              <size>
-              <width>68</width>
+              <width>58</width>
               <height>0</height>
              </size>
             </property>
@@ -193,7 +197,7 @@ QPushButton:!enabled{
            <widget class="QPushButton" name="btn_other">
             <property name="minimumSize">
              <size>
-              <width>68</width>
+              <width>58</width>
               <height>0</height>
              </size>
             </property>
