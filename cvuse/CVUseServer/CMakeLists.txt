@@ -5,6 +5,7 @@ project(CVUseServer VERSION 0.1 LANGUAGES CXX)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
+set(USE_DEPENDS ON) # 设置依赖（如果不能运行，关闭此依赖）
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -12,11 +13,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
-if(${QT_VERSION_MAJOR} MATCHES 5)
-
+if(USE_DEPENDS)
+    include(./depends/depends_setting.cmake)
 endif()
-
-include(./depends/depends_setting.cmake)
 find_package(OpenCV REQUIRED)
 
 
@@ -65,7 +64,8 @@ endif()
 
 target_link_libraries(CVUseServer PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
-    ${ACore_DIR_LIB}
+    # ${ACore_DIR_LIB}
+    ${SPDLOG_TEST_LIB}
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

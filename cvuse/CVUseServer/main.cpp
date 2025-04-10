@@ -1,7 +1,5 @@
-
-#include "winUI/mainwindow.h"
-
 #include <QApplication>
+#include "winUI/mainwindow.h"
 
 int main(int argc, char *argv[])
 {
