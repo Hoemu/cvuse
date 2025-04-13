@@ -3,6 +3,11 @@
 
 #include <QButtonGroup>
 #include <QMainWindow>
+#ifdef ALOG_SOURSE_DEF
+#include "../depends/acore/a_core.h"
+#elif ALOG_DEF
+#include <a_core.h>
+#endif
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -30,5 +35,9 @@ private:
     Ui::MainWindow *ui;
 
     QButtonGroup group;
+
+    acore::ACore acoreLog;
+
+    int count_index = 0;
 };
 #endif // MAINWINDOW_H

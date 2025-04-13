@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
+
 project(CVUseServer VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
@@ -37,6 +38,7 @@ set(PROJECT_SOURCES
 
     ${SRC}
     res_pic.qrc
+    # ${acore_src}
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -64,8 +66,8 @@ endif()
 
 target_link_libraries(CVUseServer PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
-    # ${ACore_DIR_LIB}
-    ${SPDLOG_TEST_LIB}
+    ${ACore_DIR_LIB}
+    # ${SPDLOG_TEST_LIB}
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
