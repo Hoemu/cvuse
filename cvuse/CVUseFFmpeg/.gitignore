@@ -1,0 +1,13 @@
+# Directories with generated files
+.moc/
+.obj/
+.pch/
+.rcc/
+.uic/
+
+# 文件夹
+depends/
+build/
+
+# 文件
+*.user
