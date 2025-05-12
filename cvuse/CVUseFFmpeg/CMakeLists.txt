@@ -25,6 +25,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(CVUseFFmpeg
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        ffmpeg_base_instraction.h ffmpeg_base_instraction.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET CVUseFFmpeg APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -43,8 +44,6 @@ else()
         )
     endif()
 endif()
-
-message("link lib: " ${ffmpeg_lib})
 
 target_link_libraries(CVUseFFmpeg PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets

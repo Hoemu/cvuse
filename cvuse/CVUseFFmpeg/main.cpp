@@ -1,9 +1,11 @@
+/**
+ * @brief ffmpeg 程序
+ * @author HoeMuiiii
+ * @date 2025 年 5 月 13 日
+ */
+
 #include <QApplication>
-#include <iostream>
-extern "C"
-{
-#include "./libavutil/log.h"
-}
+#include "ffmpeg_base_instraction.h"
 #include "mainwindow.h"
 
 int main(int argc, char *argv[])
@@ -11,13 +13,6 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     // MainWindow w;
     // w.show();
-    std::cout << "--------------- BEGIN --------------" << std::endl;
-
-    av_log_set_level(AV_LOG_DEBUG);
-
-    av_log(NULL, AV_LOG_INFO, "hello world!");
-
-    std::cout << "--------------- END --------------" << std::endl;
-
+    FFBaseInstraction ff;
     return a.exec();
 }
