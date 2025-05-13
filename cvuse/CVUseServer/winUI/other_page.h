@@ -3,6 +3,8 @@
 
 #include <QButtonGroup>
 #include <QWidget>
+#include <QtProtobuf/QtProtobuf>
+#include "../protocol/protocol_udp.h"
 
 namespace Ui
 {
@@ -17,10 +19,15 @@ public:
     explicit OtherPage(QWidget *parent = nullptr);
     ~OtherPage();
 
+private slots:
+    void on_btn_udp_test_send_clicked();
+
 private:
     Ui::OtherPage *ui;
 
     QButtonGroup group;
+
+    ProtocolUDP *udp;
 };
 
 #endif // OTHER_PAGE_H

@@ -27,6 +27,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     acoreLog.loadConfig()->setImplement(true);
     acoreLog.getLogController()->start();
     // acoreLog.getLogController()->setConsoleCondition(false);
+
+    emit ui->btn_other->clicked(true);
 }
 
 MainWindow::~MainWindow()

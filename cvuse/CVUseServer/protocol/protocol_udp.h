@@ -1,28 +1,31 @@
 #ifndef PROTOCOL_UDP_H
 #define PROTOCOL_UDP_H
 
-#include <chrono>
-#include <cstring>
-#include <iostream>
-#include <thread>
-#ifdef _WIN32
-#include <winsock2.h>
-#pragma comment(lib, "ws2_32.lib")
-#else
-#include <arpa/inet.h>
-#include <unistd.h>
-#endif
+#include <QUdpSocket>
 
-class ProtocolUDP
+class ProtocolUDP : public QObject
 {
 public:
-    ProtocolUDP();
+    ProtocolUDP(QObject *parent = nullptr);
 
-    void server();
+    void setIP(const QString &ip);
 
-    void clint();
+    void setPort(const quint16 &port);
 
-    void send_with_retry(int sock, const char* data, int len, sockaddr_in* addr);
+    /** 接收数据 */
+    void processPendingDatagrams();
+
+    /** 发送数据 */
+    void send(const QByteArray &data);
+
+private:
+    QUdpSocket *udpServer;
+
+    QString ip;
+
+    quint16 port;
+
+    QHostAddress addr;
 };
 
 #endif // PROTOCOL_UDP_H

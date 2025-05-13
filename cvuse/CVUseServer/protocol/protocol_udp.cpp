@@ -1,71 +1,52 @@
 #include "protocol_udp.h"
 
-ProtocolUDP::ProtocolUDP()
+ProtocolUDP::ProtocolUDP(QObject *parent) : QObject(parent)
 {
-#ifdef _WIN32
-    WSADATA wsa;
-    WSAStartup(MAKEWORD(2, 2), &wsa);
-#endif
+    udpServer = new QUdpSocket(this);
+
+    if (!udpServer->bind(QHostAddress::AnyIPv4, 12345))
+    { // 绑定本地 IPv4 地址和端口
+        qDebug() << "绑定失败：" << udpServer->errorString();
+    }
+
+    connect(udpServer, &QUdpSocket::readyRead, this, &ProtocolUDP::processPendingDatagrams);
 }
 
-void ProtocolUDP::server()
+void ProtocolUDP::setIP(const QString &ip)
 {
-    int sock = socket(AF_INET, SOCK_DGRAM, 0);
-    sockaddr_in addr { AF_INET, htons(8080), INADDR_ANY };
-    bind(sock, (sockaddr *)&addr, sizeof(addr));
+    addr.setAddress(ip);
+}
 
-    char buf[1024];
-    sockaddr_in client_addr;
-    int len = sizeof(client_addr);
-    while (true)
+void ProtocolUDP::setPort(const quint16 &port)
+{
+    this->port = port;
+}
+
+void ProtocolUDP::processPendingDatagrams()
+{
+    while (udpServer->hasPendingDatagrams())
     {
-        int recv_len = recvfrom(sock, buf, sizeof(buf), 0, (sockaddr *)&client_addr, &len);
-        if (recv_len > 0)
-        {
-            sendto(sock, buf, recv_len, 0, (sockaddr *)&client_addr, len);
-        }
+        QByteArray datagram;
+        QHostAddress sender;
+        quint16 senderPort;
+        datagram.resize(udpServer->pendingDatagramSize());
+        // 读取数据报和来源信息
+        udpServer->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
+        qDebug() << "来自" << sender << ":" << senderPort << "的数据：" << datagram;
     }
 }
-void ProtocolUDP::send_with_retry(int sock, const char *data, int len, sockaddr_in *server_addr)
+
+void ProtocolUDP::send(const QByteArray &data)
 {
-    char ack_buf[1024];
-    struct sockaddr_in from_addr;
-    int from_len = sizeof(from_addr);
-
-    for (int i = 0; i < 3; ++i)
+    QHostAddress targetAddr(ip);
+    quint16 targetPort = port;
+    qint64 bytesSent = udpServer->writeDatagram(data, targetAddr, targetPort);
+    if (bytesSent == -1)
     {
-        // 发送数据到 server_addr
-        sendto(sock, data, len, 0, (sockaddr *)server_addr, sizeof(*server_addr));
-
-        // 设置超时等待 ACK
-        fd_set read_set;
-        FD_ZERO(&read_set);
-        FD_SET(sock, &read_set);
-        timeval timeout { 1, 0 }; // 1秒超时
-
-        if (select(sock + 1, &read_set, NULL, NULL, &timeout) > 0)
-        {
-            // 接收 ACK
-            int recv_len = recvfrom(sock, ack_buf, sizeof(ack_buf), 0, (struct sockaddr *)&from_addr, &from_len);
-
-            // 验证 ACK 来源及内容
-            if (recv_len > 0)
-            {
-                // 检查是否为预期服务器（可选）
-                if (from_addr.sin_addr.s_addr == server_addr->sin_addr.s_addr && from_addr.sin_port == server_addr->sin_port)
-                {
-                    // 处理有效 ACK（如校验数据）
-                    std::cout << "ACK received: " << ack_buf << std::endl;
-                    return;
-                }
-            }
-            else
-            {
-                // 处理接收错误
-                std::cerr << "recvfrom error" << std::endl;
-            }
-        }
-        std::cout << "Retry " << i + 1 << std::endl;
+        qDebug() << "发送失败：" << udpServer->errorString();
     }
-    std::cerr << "Max retries exceeded" << std::endl;
+    else
+    {
+        qDebug() << "发送成功：" << data.toStdString();
+    }
 }

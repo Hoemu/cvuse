@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
 
-
 project(CVUseServer VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
@@ -11,7 +10,8 @@ set(USE_DEPENDS ON) # 设置依赖（如果不能运行，关闭此依赖）
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt6 COMPONENTS Core Network REQUIRED)  # Qt6 写法
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets )
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 if(USE_DEPENDS)
@@ -66,6 +66,8 @@ endif()
 
 target_link_libraries(CVUseServer PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
+    Qt6::Core
+    Qt6::Network
     ${ACore_DIR_LIB}
     # ${SPDLOG_TEST_LIB}
 )

@@ -256,9 +256,9 @@ QPushButton:!enabled{
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>70</y>
-     <width>178</width>
-     <height>39</height>
+     <y>130</y>
+     <width>261</width>
+     <height>91</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -270,9 +270,23 @@ QPushButton:!enabled{
      </widget>
     </item>
     <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>接收：</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_UDP_ACP"/>
+      </item>
+     </layout>
+    </item>
+    <item>
      <layout class="QHBoxLayout" name="horizontalLayout_4">
       <item>
-       <widget class="QLineEdit" name="lineEdit_2"/>
+       <widget class="QLineEdit" name="lineEdit_UDP_SEND"/>
       </item>
       <item>
        <widget class="QPushButton" name="btn_udp_test_send">
@@ -285,13 +299,13 @@ QPushButton:!enabled{
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>178</width>
-     <height>39</height>
+     <width>261</width>
+     <height>81</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -303,9 +317,23 @@ QPushButton:!enabled{
      </widget>
     </item>
     <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>接收：</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_TCP_ACP"/>
+      </item>
+     </layout>
+    </item>
+    <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QLineEdit" name="lineEdit"/>
+       <widget class="QLineEdit" name="lineEdit_TCP_SEND"/>
       </item>
       <item>
        <widget class="QPushButton" name="btn_tcp_test_send">
