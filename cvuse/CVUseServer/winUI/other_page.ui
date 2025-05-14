@@ -236,7 +236,7 @@ QPushButton:!enabled{
     </item>
    </layout>
   </widget>
-  <widget class="ButtonTextGroup" name="widget" native="true">
+  <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
      <x>330</x>
@@ -347,14 +347,6 @@ QPushButton:!enabled{
    </layout>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>ButtonTextGroup</class>
-   <extends>QWidget</extends>
-   <header location="global">../../../../winUI/component/button_text_group.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

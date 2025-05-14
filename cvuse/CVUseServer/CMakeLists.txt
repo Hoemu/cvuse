@@ -34,8 +34,6 @@ set(PROJECT_SOURCES
     winUI/setting_page.h winUI/setting_page.cpp winUI/setting_page.ui
     winUI/other_page.h winUI/other_page.cpp winUI/other_page.ui
     winUI/component/win_title.h winUI/component/win_title.cpp winUI/component/win_title.ui
-    winUI/component/button_text_group.h winUI/component/button_text_group.cpp winUI/component/button_text_group.ui
-
     ${SRC}
     res_pic.qrc
     # ${acore_src}
