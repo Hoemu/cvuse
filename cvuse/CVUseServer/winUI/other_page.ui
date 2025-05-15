@@ -236,29 +236,13 @@ QPushButton:!enabled{
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="widget" native="true">
-   <property name="geometry">
-    <rect>
-     <x>330</x>
-     <y>180</y>
-     <width>111</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QWidget
-{
-	color: #f0f0f0;
-}</string>
-   </property>
-  </widget>
   <widget class="QWidget" name="layoutWidget_2">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>130</y>
+     <y>110</y>
      <width>261</width>
-     <height>91</height>
+     <height>137</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -270,16 +254,47 @@ QPushButton:!enabled{
      </widget>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_6">
+     <layout class="QHBoxLayout" name="horizontalLayout_7">
       <item>
-       <widget class="QLabel" name="label_4">
+       <widget class="QLabel" name="label_5">
         <property name="text">
-         <string>接收：</string>
+         <string>是否为客户端：</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_UDP_ACP"/>
+       <widget class="QCheckBox" name="checkBox_Yes">
+        <property name="text">
+         <string>是</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkBox_No">
+        <property name="text">
+         <string>否</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <item>
+       <widget class="QPlainTextEdit" name="editeEara"/>
       </item>
      </layout>
     </item>

@@ -25,7 +25,7 @@ set(PROJECT_SOURCES
     # logic
     win/win_opengl.h win/win_opengl.cpp
     win/win_play.h win/win_play.cpp
-    protocol/protocol_udp.h protocol/protocol_udp.cpp
+    protocol/udp_server.h protocol/udp_server.cpp
     tool/qss_tool.h tool/qss_tool.cpp
 
     # UI

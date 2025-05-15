@@ -4,7 +4,7 @@
 #include <QButtonGroup>
 #include <QWidget>
 #include <QtProtobuf/QtProtobuf>
-#include "../protocol/protocol_udp.h"
+#include "../protocol/udp_server.h"
 
 namespace Ui
 {
@@ -22,12 +22,20 @@ public:
 private slots:
     void on_btn_udp_test_send_clicked();
 
+    void on_checkBox_Yes_clicked();
+
+    void on_checkBox_No_clicked();
+
+    void readData(QByteArray data);
+
 private:
     Ui::OtherPage *ui;
 
     QButtonGroup group;
 
-    ProtocolUDP *udp;
+    QButtonGroup groupUdpServer;
+
+    UDPServer *udp;
 };
 
 #endif // OTHER_PAGE_H
