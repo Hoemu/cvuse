@@ -3,7 +3,7 @@
 
 OtherPage::OtherPage(QWidget *parent) : QWidget(parent), ui(new Ui::OtherPage)
 {
-    udp = new UDPServer(this);
+    udp = new RemoteUDP(this);
     ui->setupUi(this);
     group.addButton(ui->btn_test1);
     group.addButton(ui->btn_test2);
@@ -32,7 +32,7 @@ void OtherPage::on_checkBox_Yes_clicked()
 void OtherPage::on_checkBox_No_clicked()
 {
     link();
-    udp->disUDPProtocol();
+    // udp->disUDPProtocol();
 }
 
 void OtherPage::readData(QByteArray data)
@@ -42,9 +42,9 @@ void OtherPage::readData(QByteArray data)
 
 void OtherPage::link()
 {
-    disconnect(udp, &UDPServer::receiverData, this, &OtherPage::readData);
+    disconnect(udp, &RemoteUDP::receiverData, this, &OtherPage::readData);
     delete udp;
-    udp = new UDPServer(this);
+    udp = new RemoteUDP(this);
     udp->setPort(7777);
-    connect(udp, &UDPServer::receiverData, this, &OtherPage::readData);
+    connect(udp, &RemoteUDP::receiverData, this, &OtherPage::readData);
 }

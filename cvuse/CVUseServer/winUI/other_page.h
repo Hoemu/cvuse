@@ -4,7 +4,7 @@
 #include <QButtonGroup>
 #include <QWidget>
 #include <QtProtobuf/QtProtobuf>
-#include "../protocol/udp_server.h"
+#include "../remote/remote_udp.h"
 
 namespace Ui
 {
@@ -37,7 +37,7 @@ private:
 
     QButtonGroup groupUdpServer;
 
-    UDPServer *udp;
+    RemoteUDP *udp;
 };
 
 #endif // OTHER_PAGE_H

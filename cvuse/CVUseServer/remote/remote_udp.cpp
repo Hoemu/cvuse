@@ -3,18 +3,22 @@
 RemoteUDP::RemoteUDP(QObject *parent) : QObject(parent)
 {
     udp = new QUdpSocket(this);
+    addr = new QHostAddress;
+    addr->setAddress(QHostAddress::Broadcast);
 
     connect(udp, &QUdpSocket::errorOccurred, this, &RemoteUDP::UDPError);
 }
 
-void RemoteUDP::send(const QString &msg, QHostAddress *host)
+RemoteUDP::~RemoteUDP()
 {
-    if (host == nullptr)
-    {
-        *host = QHostAddress::Broadcast;
-    }
+    delete addr;
+}
+
+void RemoteUDP::send(const QString &msg)
+{
     QByteArray sendData = msg.toLatin1();
-    udp->writeDatagram(sendData.data(), sendData.size(), *host, port);
+    quint16 res = udp->writeDatagram(sendData.data(), sendData.size(), *addr, port);
+    qDebug() << res;
 }
 
 void RemoteUDP::setPort(const quint64 &port)
@@ -25,17 +29,12 @@ void RemoteUDP::setPort(const quint64 &port)
 
 void RemoteUDP::setIPAddr(const QString &ipV4)
 {
-    addr.setAddress(ipV4);
+    addr->setAddress(ipV4);
 }
 
-void RemoteUDP::setUDPProtocol(const QAbstractSocket::BindFlag &protocol, QHostAddress *host)
+void RemoteUDP::setUDPProtocol(const QAbstractSocket::BindFlag &protocol)
 {
-    QHostAddress add = *host;
-    if (host != nullptr)
-    {
-        addr = add;
-    }
-    qDebug() << "bind server port:" << port;
+    qDebug() << "bind server protocol:" << port;
     this->protocol = protocol;
     udp->bind(port, protocol);
 
