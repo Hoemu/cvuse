@@ -5,28 +5,38 @@ project(CVUseClient VERSION 0.1 LANGUAGES CXX)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
+set(USE_DEPENDS ON) # 设置依赖（如果不能运行，关闭此依赖）
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt6 COMPONENTS Core Network REQUIRED)  # Qt6 写法
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets )
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
-include(./depends/depends.cmake)
+if(USE_DEPENDS)
+    include(./depends/depends_setting.cmake)
+endif()
 find_package(OpenCV REQUIRED)
 
-message("src :"${SRC})
 
 set(PROJECT_SOURCES
-    win/win_opengl.h
-    win/win_opengl.cpp
-    protocol/protocol_udp.h
-    protocol/protocol_udp.cpp
     main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
+    # logic
+    win/win_opengl.h win/win_opengl.cpp
+    win/win_play.h win/win_play.cpp
+    remote/remote_udp.h remote/remote_udp.cpp
+    tool/qss_tool.h tool/qss_tool.cpp
+
+    # UI
+    winUI/mainwindow.cpp winUI/mainwindow.h winUI/mainwindow.ui
+    winUI/main_page.cpp winUI/main_page.h winUI/main_page.ui
+    winUI/setting_page.h winUI/setting_page.cpp winUI/setting_page.ui
+    winUI/other_page.h winUI/other_page.cpp winUI/other_page.ui
+    winUI/component/win_title.h winUI/component/win_title.cpp winUI/component/win_title.ui
     ${SRC}
+    res_pic.qrc
+    # ${acore_src}
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -54,6 +64,10 @@ endif()
 
 target_link_libraries(CVUseClient PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
+    Qt6::Core
+    Qt6::Network
+    ${ACore_DIR_LIB}
+    # ${SPDLOG_TEST_LIB}
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
