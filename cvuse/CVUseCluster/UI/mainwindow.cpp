@@ -64,3 +64,13 @@ void MainWindow::on_btn_disconnect_clicked()
         ui->label_status->setText("断开连接");
     }
 }
+
+void MainWindow::on_btn_UDP_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_udp);
+}
+
+void MainWindow::on_btn_TCP_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_tcp);
+}

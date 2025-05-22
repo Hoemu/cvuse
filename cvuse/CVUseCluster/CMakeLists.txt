@@ -23,12 +23,16 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 set(PROJECT_SOURCES
     main.cpp
     # logic
-    config_setting.h config_setting.cpp
-    remote_udp.h remote_udp.cpp
+    Server/config_setting.h Server/config_setting.cpp
+    Server/remote_udp.h Server/remote_udp.cpp
+    Server/remote_tcp.h Server/remote_tcp.cpp
 
     # UI
-    mainwindow.cpp mainwindow.h mainwindow.ui
+    UI/mainwindow.cpp UI/mainwindow.h UI/mainwindow.ui
     # ${acore_src}
+    UI/server
+    # 其他
+    UiHeader
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

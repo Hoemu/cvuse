@@ -2,8 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "config_setting.h"
-#include "remote_udp.h"
+#include "server"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -30,6 +29,10 @@ private slots:
     void on_btn_connect_clicked();
 
     void on_btn_disconnect_clicked();
+
+    void on_btn_UDP_clicked();
+
+    void on_btn_TCP_clicked();
 
 protected:
     void init();

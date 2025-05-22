@@ -19,7 +19,6 @@ void RemoteUDP::send(const QString &msg)
 {
     QByteArray sendData = msg.toLatin1();
     quint16 res = udp->writeDatagram(sendData.data(), sendData.size(), *addr, port);
-    qDebug() << res;
 }
 
 void RemoteUDP::setPort(const quint64 &port)
@@ -52,10 +51,7 @@ void RemoteUDP::setUDPProtocol(const_bindFlag &protocol, const_protocol &protoco
     connect(udp, &QUdpSocket::readyRead, this, &RemoteUDP::processPendingDatagram);
 }
 
-void RemoteUDP::setMulticastGroup()
-{
-
-}
+void RemoteUDP::setMulticastGroup() {}
 
 void RemoteUDP::processPendingDatagram()
 {
