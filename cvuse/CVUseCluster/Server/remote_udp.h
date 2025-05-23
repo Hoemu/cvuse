@@ -16,7 +16,7 @@ public:
     RemoteUDP(QObject *parent = nullptr);
     ~RemoteUDP();
 
-    void send(const QString &msg);
+    void sendData(const QString &msg);
 
     void setPort(const quint64 &port);
 

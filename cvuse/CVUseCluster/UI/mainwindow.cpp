@@ -22,7 +22,7 @@ void MainWindow::on_btn_send_clicked()
     {
         return;
     }
-    clinet->send(ui->textEdit_eara->text());
+    clinet->sendData(ui->textEdit_eara->text());
 }
 
 void MainWindow::readData(QByteArray data)

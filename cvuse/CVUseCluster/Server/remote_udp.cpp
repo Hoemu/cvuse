@@ -15,7 +15,7 @@ RemoteUDP::~RemoteUDP()
     delete addr;
 }
 
-void RemoteUDP::send(const QString &msg)
+void RemoteUDP::sendData(const QString &msg)
 {
     QByteArray sendData = msg.toLatin1();
     quint16 res = udp->writeDatagram(sendData.data(), sendData.size(), *addr, port);

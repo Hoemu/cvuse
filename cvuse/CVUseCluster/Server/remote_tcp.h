@@ -5,6 +5,10 @@ class RemoteTCP
 {
 public:
     RemoteTCP();
+
+    void readData();
+
+    void writeData();
 };
 
 #endif // REMOTE_TCP_H
