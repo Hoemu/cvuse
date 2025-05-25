@@ -16,7 +16,13 @@ ConfigSetting::~ConfigSetting()
 
 void ConfigSetting::init()
 {
-    config->setValue("remote/ip", "123");
+    config->setValue("remoteTCP/ip", "127.0.0.1");
+    config->setValue("remoteTCP/port", "2222");
+    config->setValue("remoteTCP/brif", "TCP 基本信息");
+
+    config->setValue("remoteUDP/ip", "127.0.0.1");
+    config->setValue("remoteUDP/port", "1111");
+    config->setValue("remoteUDP/brif", "UDP 基本信息");
     config->sync();
 }
 

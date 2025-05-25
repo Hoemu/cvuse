@@ -10,6 +10,7 @@ TARGET += CVUseCluster
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Server/script_base.cpp \
     Server\config_setting.cpp \
     main.cpp \
     UI\mainwindow.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
     Server\remote_tcp.cpp
 
 HEADERS += \
+    Server/script_base.h \
     Server\config_setting.h \
     UI\mainwindow.h \
     Server\remote_udp.h \
