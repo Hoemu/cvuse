@@ -1,5 +1,5 @@
 #include <QApplication>
-#include <UiHeader>
+#include "UiHeader"
 
 int main(int argc, char *argv[])
 {

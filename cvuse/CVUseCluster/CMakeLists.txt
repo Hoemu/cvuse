@@ -29,36 +29,40 @@ set(PROJECT_SOURCES
 
     # UI
     UI/mainwindow.cpp UI/mainwindow.h UI/mainwindow.ui
+    UI/udp_page.h UI/udp_page.cpp UI/udp_page.ui
     # ${acore_src}
-    UI/server
+    UI/remote
     # 其他
     UiHeader
 )
 
+add_definitions(-DSOURCE_DIR=${CMAKE_CURRENT_SOURCE_DIR})
+
+
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(CVUseClient
+    qt_add_executable(CVUseCluster
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
     )
 # Define target properties for Android with Qt 6 as:
-#    set_property(TARGET CVUseClient APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
+#    set_property(TARGET CVUseCluster APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
     if(ANDROID)
-        add_library(CVUseClient SHARED
+        add_library(CVUseCluster SHARED
             ${PROJECT_SOURCES}
         )
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
-        add_executable(CVUseClient
+        add_executable(CVUseCluster
             ${PROJECT_SOURCES}
         )
     endif()
 endif()
 
-target_link_libraries(CVUseClient PRIVATE
+target_link_libraries(CVUseCluster PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt6::Core
     Qt6::Network
@@ -68,9 +72,9 @@ target_link_libraries(CVUseClient PRIVATE
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
 if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.CVUseClient)
+  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.CVUseCluster)
 endif()
-set_target_properties(CVUseClient PROPERTIES
+set_target_properties(CVUseCluster PROPERTIES
     ${BUNDLE_ID_OPTION}
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -79,12 +83,12 @@ set_target_properties(CVUseClient PROPERTIES
 )
 
 include(GNUInstallDirs)
-install(TARGETS CVUseClient
+install(TARGETS CVUseCluster
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(CVUseClient)
+    qt_finalize_executable(CVUseCluster)
 endif()

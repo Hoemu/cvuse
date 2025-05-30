@@ -8,6 +8,7 @@
 # 文件夹
 depends/
 build/
+release/
 
 # 文件
 *.user
