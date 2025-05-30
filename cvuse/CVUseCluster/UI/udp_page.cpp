@@ -5,6 +5,8 @@ UDPPage::UDPPage(QWidget *parent) : QWidget(parent), ui(new Ui::UDPPage)
 {
     ui->setupUi(this);
     isConnect = false;
+    server = nullptr;
+    clinet = nullptr;
 }
 
 UDPPage::~UDPPage()
@@ -14,10 +16,15 @@ UDPPage::~UDPPage()
 
 void UDPPage::on_btn_connect_clicked()
 {
-    if (isConnect == true)
+    quint64 currentSendPort = ui->doubleSpinBox_SendPort->value();
+    quint64 currentAcceptPort = ui->doubleSpinBox_AcceptPort->value();
+    QString currentIP = ui->ip->text();
+
+    if (isConnect == true && (server->getIPAddr() == currentIP || server->getPort() == currentAcceptPort || clinet->getPort() == currentSendPort))
     {
         return;
     }
+    cancelConnect();
     init();
     isConnect = true;
     clinet->sendData(ui->textEdit_eara->text());
@@ -27,11 +34,7 @@ void UDPPage::on_btn_disconnect_clicked()
 {
     if (isConnect == true)
     {
-        delete server;
-        server = nullptr;
-        delete clinet;
-        clinet = nullptr;
-        ui->label_status->setText("断开连接");
+        cancelConnect();
     }
     isConnect = false;
 }
@@ -53,6 +56,19 @@ void UDPPage::init()
     clinet->setIPAddr(ui->ip->text());
 
     ui->label_status->setText("已连接");
+}
+
+void UDPPage::cancelConnect()
+{
+    if (server == nullptr || clinet == nullptr)
+    {
+        return;
+    }
+    delete server;
+    server = nullptr;
+    delete clinet;
+    clinet = nullptr;
+    ui->label_status->setText("断开连接");
 }
 
 void UDPPage::on_btn_clear_clicked()

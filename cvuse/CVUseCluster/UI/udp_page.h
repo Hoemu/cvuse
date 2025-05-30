@@ -31,6 +31,8 @@ private slots:
 protected:
     void init();
 
+    void cancelConnect();
+
 private:
     Ui::UDPPage *ui;
 

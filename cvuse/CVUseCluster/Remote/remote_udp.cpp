@@ -20,7 +20,7 @@ RemoteUDP::~RemoteUDP()
 void RemoteUDP::sendData(const QString &msg)
 {
     QByteArray sendData = msg.toLatin1();
-    quint16 res = udp->writeDatagram(sendData.data(), sendData.size(), *addr, port);
+    udp->writeDatagram(sendData.data(), sendData.size(), *addr, port);
 }
 
 void RemoteUDP::setPort(const quint64 &port)
@@ -29,9 +29,19 @@ void RemoteUDP::setPort(const quint64 &port)
     this->port = port;
 }
 
+quint64 RemoteUDP::getPort() const
+{
+    return this->port;
+}
+
 void RemoteUDP::setIPAddr(const QString &ipV4)
 {
     addr->setAddress(ipV4);
+}
+
+QString RemoteUDP::getIPAddr() const
+{
+    return addr->toString();
 }
 
 void RemoteUDP::setUDPProtocol(const_bindFlag &protocol, const_protocol &protocolAddr)

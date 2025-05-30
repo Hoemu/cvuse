@@ -17,8 +17,10 @@ public:
     void sendData(const QString &msg);
 
     void setPort(const quint64 &port);
+    quint64 getPort() const;
 
     void setIPAddr(const QString &ipV4);
+    QString getIPAddr() const;
 
     /** 设置 UDP 协议 */
     void setUDPProtocol(const_bindFlag &protocol, const_protocol &protocolAddr = QHostAddress::Null);
