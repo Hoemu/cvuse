@@ -19,13 +19,15 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 #endif()
 #find_package(OpenCV REQUIRED)
 
+include(./code-config/base-config.cmake)
+
 
 set(PROJECT_SOURCES
     main.cpp
     # logic
-    Server/config_setting.h Server/config_setting.cpp
-    Server/remote_udp.h Server/remote_udp.cpp
-    Server/remote_tcp.h Server/remote_tcp.cpp
+    Remote/config_setting.h Remote/config_setting.cpp
+    Remote/remote_udp.h Remote/remote_udp.cpp
+    Remote/remote_tcp.h Remote/remote_tcp.cpp
 
     # UI
     UI/mainwindow.cpp UI/mainwindow.h UI/mainwindow.ui

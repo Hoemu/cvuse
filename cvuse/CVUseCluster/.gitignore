@@ -9,6 +9,7 @@
 depends/
 build/
 release/
+debug/
 
 # 文件
 *.user

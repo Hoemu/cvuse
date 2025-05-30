@@ -28,7 +28,9 @@ void UDPPage::on_btn_disconnect_clicked()
     if (isConnect == true)
     {
         delete server;
+        server = nullptr;
         delete clinet;
+        clinet = nullptr;
         ui->label_status->setText("断开连接");
     }
     isConnect = false;
@@ -60,5 +62,8 @@ void UDPPage::on_btn_clear_clicked()
 
 void UDPPage::on_btn_send_clicked()
 {
-    clinet->sendData(ui->textEdit_eara->text());
+    if (clinet != nullptr)
+    {
+        clinet->sendData(ui->textEdit_eara->text());
+    }
 }

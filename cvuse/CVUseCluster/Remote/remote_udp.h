@@ -4,8 +4,6 @@
 #include <QObject>
 #include <QUdpSocket>
 
-typedef const unsigned int muint;
-
 class RemoteUDP : public QObject
 {
     Q_OBJECT
@@ -49,8 +47,6 @@ private:
     QUdpSocket *udp;
 
     quint16 port;
-
-    QString ipV4;
 
     QHostAddress *addr;
 

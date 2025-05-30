@@ -11,7 +11,9 @@ RemoteUDP::RemoteUDP(QObject *parent) : QObject(parent)
 
 RemoteUDP::~RemoteUDP()
 {
+    udp->abort();
     udp->close();
+
     delete addr;
 }
 

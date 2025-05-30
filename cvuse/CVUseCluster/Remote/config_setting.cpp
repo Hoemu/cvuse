@@ -31,7 +31,7 @@ const QString ConfigSetting::getValue(const QString &key)
     return configHash.value(key);
 }
 
-const QString ConfigSetting::setValue(const QString &key)
+const void ConfigSetting::setValue(const QString &key)
 {
     temp = key;
 }

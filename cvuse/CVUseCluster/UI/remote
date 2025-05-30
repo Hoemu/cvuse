@@ -1,2 +1,2 @@
-#include "../Server/config_setting.h"
-#include "../Server/remote_udp.h"
+#include "../Remote/config_setting.h"
+#include "../Remote/remote_udp.h"
