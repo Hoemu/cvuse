@@ -1,5 +1,4 @@
 #include "config_setting.h"
-
 #include <QFile>
 
 ConfigSetting::ConfigSetting()
@@ -16,13 +15,10 @@ ConfigSetting::~ConfigSetting()
 
 void ConfigSetting::init()
 {
-    config->setValue("remoteTCP/ip", "127.0.0.1");
-    config->setValue("remoteTCP/port", "2222");
-    config->setValue("remoteTCP/brif", "TCP 基本信息");
-
-    config->setValue("remoteUDP/ip", "127.0.0.1");
-    config->setValue("remoteUDP/port", "1111");
-    config->setValue("remoteUDP/brif", "UDP 基本信息");
+    config->setValue("remote/name", "tcp_remote");
+    config->setValue("remote/ip", "127.0.0.1");
+    config->setValue("remote/port", "9999");
+    config->setValue("remote/is_use", "true");
     config->sync();
 }
 
@@ -31,7 +27,13 @@ const QString ConfigSetting::getValue(const QString &key)
     return configHash.value(key);
 }
 
-const void ConfigSetting::setValue(const QString &key)
+const QString ConfigSetting::setValue(const QString &key)
 {
     temp = key;
+    return configHash[key];
+}
+
+void ConfigSetting::clear()
+{
+    configHash.clear();
 }

@@ -3,12 +3,6 @@
 
 #include <QSettings>
 
-struct RemoteCode
-{
-    const QString code_send = "[code]:send";
-    const QString code_accept = "[code]:accept";
-};
-
 class ConfigSetting
 {
 public:
@@ -17,7 +11,9 @@ public:
 
     const QString getValue(const QString &key);
 
-    const void setValue(const QString &key);
+    const QString setValue(const QString &key);
+
+    void clear();
 
 protected:
     void init();

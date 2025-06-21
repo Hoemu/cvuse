@@ -32,6 +32,7 @@ set(PROJECT_SOURCES
     # UI
     UI/mainwindow.cpp UI/mainwindow.h UI/mainwindow.ui
     UI/udp_page.h UI/udp_page.cpp UI/udp_page.ui
+    UI/tcp_page.h UI/tcp_page.cpp UI/tcp_page.ui
     # ${acore_src}
     UI/remote
     # 其他

@@ -52,10 +52,10 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="UDPPage" name="page_udp"/>
-      <widget class="QWidget" name="page_tcp"/>
+      <widget class="TCPPage" name="page_tcp"/>
      </widget>
     </item>
    </layout>
@@ -76,7 +76,13 @@
   <customwidget>
    <class>UDPPage</class>
    <extends>QWidget</extends>
-   <header location="global">../../../../UI/udp_page.h</header>
+   <header>../../../../UI/udp_page.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TCPPage</class>
+   <extends>QWidget</extends>
+   <header location="global">../../../../UI/tcp_page.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
