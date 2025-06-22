@@ -15,6 +15,7 @@ ConfigSetting::~ConfigSetting()
 
 void ConfigSetting::init()
 {
+    // 设置初始值
     config->setValue("remote/name", "tcp_remote");
     config->setValue("remote/ip", "127.0.0.1");
     config->setValue("remote/port", "9999");

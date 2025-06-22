@@ -1,6 +1,7 @@
 #ifndef TCP_PAGE_H
 #define TCP_PAGE_H
 
+#include <QTcpSocket>
 #include <QWidget>
 #include "remote"
 

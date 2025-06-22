@@ -55,7 +55,7 @@ void UDPPage::init()
     clinet->setPort(ui->doubleSpinBox_SendPort->value());
     clinet->setIPAddr(ui->ip->text());
 
-    ui->label_status->setText("已连接");
+    ui->label_status->setText("已连接！");
 }
 
 void UDPPage::cancelConnect()
@@ -68,7 +68,7 @@ void UDPPage::cancelConnect()
     server = nullptr;
     delete clinet;
     clinet = nullptr;
-    ui->label_status->setText("断开连接");
+    ui->label_status->setText("断开连接！");
 }
 
 void UDPPage::on_btn_clear_clicked()
@@ -81,5 +81,9 @@ void UDPPage::on_btn_send_clicked()
     if (clinet != nullptr)
     {
         clinet->sendData(ui->textEdit_eara->text());
+    }
+    else
+    {
+        ui->label_status->setText("发送失败！");
     }
 }
