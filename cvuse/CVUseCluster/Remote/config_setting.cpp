@@ -20,6 +20,7 @@ void ConfigSetting::init()
     config->setValue("remote/ip", "127.0.0.1");
     config->setValue("remote/port", "9999");
     config->setValue("remote/is_use", "true");
+
     config->sync();
 }
 

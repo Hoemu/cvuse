@@ -9,3 +9,11 @@ RemoteTCP::~RemoteTCP()
 {
     delete tcp;
 }
+
+void RemoteTCP::sendMessage() {}
+
+void RemoteTCP::newConnect() {}
+
+void RemoteTCP::readMessage() {}
+
+void RemoteTCP::TCPError(QAbstractSocket::SocketError) {}
